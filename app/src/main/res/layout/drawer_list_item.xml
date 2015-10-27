@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="80sp"
     android:background="@android:color/transparent"
-    tools:context="drawer.lukmarr.pl.dynamicdrawer.FirstFragment">
+    tools:context="drawer.lukmarr.pl.dynamicdrawer.ControllerFragment">
 
     <TextView
         android:id="@+id/name"

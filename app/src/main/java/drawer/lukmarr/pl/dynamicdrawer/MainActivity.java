@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         mTitle = mDrawerTitle = getTitle();
         menuOptions = new ArrayList<>();
-        menuOptions.add("Adaś");
-        menuOptions.add("Matje");
-        menuOptions.add("Łukasz");
 
 //        if (getIntent().hasExtra("ARRAY")) {
 //            menuOptions = getIntent().getStringArrayExtra("ARRAY");
@@ -88,27 +85,36 @@ public class MainActivity extends AppCompatActivity {
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
+
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.content_frame, FirstFragment.newInstance())
+                    .add(R.id.content_frame, ComFragment.newInstance("COM1"))
                     .commitAllowingStateLoss();//.commit();
         }
         mDrawerLayout.openDrawer(mDrawerList);
+        setInitialFragment();
+    }
 
+    public void setInitialFragment() {
+        Log.d(TAG, "setInitialFragment ");
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content_frame, InitialFragment.newInstance())
+                .commit();
     }
 
     private void selectItem(int position) {
         Log.d(TAG, "selectItem " + position);
         Fragment fragment;
         switch (position) {
-            case 0: {
-                fragment = FirstFragment.newInstance();
-                break;
-            }
+//            case 0: {
+//                fragment = ControllerFragment.newInstance(device);
+//                break;
+//            }
             default: {
-                fragment = ThirdFragment.newInstance();
+                fragment = InitialFragment.newInstance();
             }
         }
 
@@ -124,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Log.d(TAG, "onItemClick ");
             selectItem(position);
         }
     }

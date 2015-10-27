@@ -3,21 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light"
-    tools:context="drawer.lukmarr.pl.dynamicdrawer.FirstFragment">
+    tools:context="drawer.lukmarr.pl.dynamicdrawer.ControllerFragment">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/nazwa2"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="COM1"
+        android:textSize="40sp" />
 
     <Button
-        android:text="cycki"
-        android:layout_toLeftOf="@+id/nazwa2"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:id="@+id/nazwa1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <Button
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="dupa"
+        android:layout_toLeftOf="@+id/nazwa2"
+        android:text="cycki" />
+
+    <Button
         android:id="@+id/nazwa2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="dupa" />
 </RelativeLayout>
